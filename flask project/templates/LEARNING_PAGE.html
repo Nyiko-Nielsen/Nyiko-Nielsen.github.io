@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>POPIA TRAINING LEARNING PAGE</title>
+    <style>
+/* Inside the stylesheet, start by removing the default list style*/
+ol,ul {
+	list-style: none;
+}
+/*Set the width and margins of the menu*/
+#mainMenu {
+	margin: 10px;
+	width: 100%;
+	font-family: sans-serif;
+}
+/* Set the list items to display as blocks, give them a width, and float them to the left so that they'll each display to the right of the preceding item*/
+#mainMenu li {
+	display:block;
+	width:11%;
+    height:60px;
+	float:left;
+	margin-left:2px;
+	border:1px solid #000;
+}
+/* Change the a elements to block elements. We'll also add some formatting styles and remove the underline with text-decoration: none.*/
+#mainMenu a {
+	display:block;
+	padding:3px;
+	text-decoration:none;
+    height:55px;
+	background-color:rgb(196, 213, 216);
+	color:rgb(0, 0, 0);
+    border:1px solid #000;
+}
+/*change the hover state of the links so that they highlight when a user points to them. */	
+#mainMenu a:hover {
+	background-color: #555;
+	color:#fff;
+}
+header{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 7s ease infinite;
+	height: 30vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/*styling the body*/
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+body {
+  background-color: #eee;
+  min-height: 100%;
+  color: #fff;
+  //@include background-image(radial-gradient(center, #eee 0%,#bbb 100%));
+  background-image: url('http://isaacsuttell.com/img/justine.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: Raleway, sans-serif;
+ 
+}
+/*styling the pop up form*/
+
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 2px solid #111111;
+  z-index: 9;
+
+}
+.color{
+    color:rgb(0, 0, 0);   
+}
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  max-height:500px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.699);
+  opacity: 1;
+  z-index: 9;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+textarea {
+
+  width: 80%;
+  height: 190px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: auto;
+  overflow: auto;
+
+  }
+  
+  
+  div{
+    opacity: 1;
+  overflow: auto;
+  }
+
+    </style>
+</head>
+
+	<header>
+	<nav>
+        <br>
+        <h1>&nbsp;&nbsp;POPIA COMPLIANCE TRAINING LEARNING PAGE</h1>
+		<ul id="mainMenu">
+			<li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="https://docs.google.com/document/d/1M_7FISSshfjTcKpCR04zxQkqjdqvEHej/edit" target="_blank">POPIA Audit Instructions Document</a></li>
+			<li><a href="https://drive.google.com/file/d/0Bwe371P12IBSZEdySzFiNl9ITTg/view?resourcekey=0-wjC2KicqtlqM-xFi4K45GQ" target="_blank">Nielsen Global Privacy Policy</a></li>
+			<li><a href="https://nielsen.service-now.com" target="_blank">ServiceNow form</a></li>
+			<li><a href="https://sites.google.com/nielsen.com/privacy" target="_blank">Privacy website</a></li>
+			<li><a href="https://gracenote.slack.com/archives/C01R13ZL2H2" target="_blank">Slack channel</a></li>
+			<li><a href="about.html" target="_blank">About</a></li>
+			<li><a onclick="openForm()">Contact Us</a></li>
+		</ul>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1 class="color">Contact Us</h1>
+          
+              
+              <label for="fname" class="color">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          
+              <label for="lname" class="color">Last Name</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          
+              <label for="email" class="color">Email</label>
+              <input type="text" id="email" name="Email" placeholder="Your email..">
+
+              <label for="Issue" class="color">Issue</label>
+              <select id="Issue" name="Issue">
+                <option value="Technical/IT">Technical/IT</option>
+                <option value="Compliance">Compliance/Training</option>
+              </select>
+               <br><br>
+              <label for="subject" class="color">Additional information</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          
+              <button type="submit" class="btn">Submit</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+          
+          <script>
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+          }
+          
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+          }
+          </script>
+	</nav>	
+	
+    </header>
+	<body>
+<canvas id="canvas">
+<script src="file:C:/Users/nymaswan2201/Documents/javascript/canvas.js"></script>
+    <section>
+     <br><br><br>   
+     <h1 id="title">START YOUR NIELSEN POPIA COMPLIANCE JOURNEY TODAY</h1>
+     
+    </section>
+</canvas>
+</body>
+</html>
